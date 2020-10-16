@@ -1,0 +1,84 @@
+body{
+    font-size: 16px;
+    background-color: gray;
+    
+}
+
+h1{
+    color:lightgreen;
+    text-align: center;
+
+}
+
+.main{
+    
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: white;
+    
+    border-radius: 20px;
+}
+
+lable{
+    font-size: 1.5rem;
+}
+
+input{
+   font-size: 1.1rem;
+   margin-left: 100px;
+   border-radius: 5px;
+}
+
+
+/* Costomer Address */
+.customer-address h2{
+    font-size: 1.5rem;
+}
+
+.customer-address{
+    margin-left: 300px;
+}
+.customer-address span{
+    border-bottom: 3px solid lightgreen;
+}
+
+.customer-address input{
+    margin-left: 110px;
+    border-radius: 5px;
+    box-shadow: aquamarine;
+}
+
+.customer-address label{
+    font-size: 1.2rem;
+}
+
+.service h2{
+    color: black;
+
+}
+
+.service{
+    margin-left: 300px;
+}
+
+.service-details table, th, td{
+    font-size: 1.2rem;
+    text-align: justify;
+    border: 2px solid black;
+}
+.service-details lable{
+    font-size: 1.5rem;
+}
+.service-details input{
+    margin: 0;
+}
+
+
+
+.note{
+    margin-left: 300px;
+}
+
+/* table th {
+    border: 1px solid black;
+} */
