@@ -10,20 +10,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
   <!-- <script src="jquery.min.js"></script> -->
+
     <title>Entry details</title>
-    <script>
-        $('.form-group').on('input','.prc',function(){
-            var totalSum = 0;
-            $('.form-group .prc').each(function(){
-                var inputVal = $(this).val();
-                if($.isNumeric(inputVal)){
-                    totalSum += parseFloat(inputVal); 
-                }
-            });
-            $('#grandtotal').text(totalSum);
-        });
-    </script>
+
 </head>
 <body>
     <script language="javascript">
@@ -67,53 +58,6 @@ function deleteRow(tableID) {
     $("")
 }
 
-
-//Calculation Part
-
-// function calculate(elementID){
-//     var amount = 0;  
-
-//     var grandtotal = 0;
-
-//     var mainRow = document.getElementById(elementID);
-
-//      amount = mainRow.querySelectorAll('[id=amount]')[0].value;
-
-//     var rowIdSet = new Set();
-//         rowIdSet.add(elementID);
-
-//         console.log(rowIdSet);
-//         var quoteTable = document.getElementById('dataTable');
-
-//         var rowLength = quoteTable.rows.length;
-//         console.log("rowLength: " + rowLength);
-
-//         var totalValue = 0;
-
-//         for (i = 0; i < rowLength; i++){
-
-//             var row = document.getElementById("row_"+ i);
-            
-//             totalValue = row.querySelectorAll('[id=amount]')[0].value;
-//             grandTotal = +grandTotal + +totalValue;
-           
-//            console.log("grandTotal: " + grandTotal);
-
-//         }
-//         var Grand_Total = document.getElementById('grandtotal');
-//                 Grand_Total.value = grandTotal;
-// }
-
-// calc_total();
-
-// function calc_total(){
-//   var grandtotal = 0;
-//   $(".amount").each(function(){
-//     sum += parseFloat($(this).text());
-//   });
-//   $('#grandtotal').text(grandtotal);
-// }
-
 $(document).ready(function () {
     $("#ckbCheckAll").click(function () {
         $(".checkBoxClass").prop('checked', $(this).prop('checked'));
@@ -137,7 +81,7 @@ $(document).ready(function () {
 </script>
 <div class="main">
 
-    <form action="quote.php" method="POST" enctype="multipart/form-data">
+    <form action="quote.php" method="POST">
         <!-- Customer Detils -->
         <h1><span style="border-bottom: 10px solid lightgreen;">SpringLabs Quote Form</span></h1>
 
@@ -158,7 +102,7 @@ $(document).ready(function () {
             <input type="text" id="street2" name="street2" placeholder="Street Address line2" /><br><br>
             <input type="text" id="city" name="city" placeholder="City" /><br><br>
             <input type="number" id="postalcode" name="postalcode" placeholder="Postal Code" /><br><br>
-            <input type="text" id="mobile" name="mobile"  placeholder="Mobile Number"/>            
+            <input type="number" id="mobile" name="mobile"  placeholder="Mobile Number"/>            
         </div>
 
         <!-- Curomer Details Ends -->
@@ -188,22 +132,16 @@ $(document).ready(function () {
                     <td><input type="text"  class="amount" name="subamount[]" id="subamount"  onkeypress="return onlyNumberKey(event)"  required /></td>
 
                     <td><input type="text"  class="yearlyamount" name="yearlyamount[]" id="yearlyamount" onkeypress="return onlyNumberKey(event)"  required /></td>
-                    
                 </tr>
-                </tbody> 
+            </tbody> 
         </table>
         
             <br><br>
-            <!-- <label for="Grand_Total" style="font-size: 24px;">Sub_Total: </label><input  class="subgrandtotal" id="subgrandtotal" name="subgrandtotal[]" onkeypress="return onlyNumberKey(event)" /> <br><br>
-            <label for="Grand_Total" style="font-size: 24px;">Yearly_Total: </label><input  class="subyearlyamount" id="subyearlyamount" name="subyearlyamount[]" onkeypress="return onlyNumberKey(event)"  /> <br><br>
-            <label for="Grand_Total" style="font-size: 24px;">Grand_total:</label><input class="grandtotal" id="grandtotal" onkeypress="return onlyNumberKey(event)" />  -->
             <br><br>
-            <label for="Grand_Total" style="font-size: 24px;">Sub_Total: <span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal" onkeypress="return onlyNumberKey(event)">0</span> </label><br><br>
-            <label for="Grand_Total" style="font-size: 24px;">Yearly_Total: <span class="subyearlyamount" id="subyearlyamount" name="subyearlyamount"  onkeypress="return onlyNumberKey(event)">0</span> </label><br><br>
-            <label for="Grand_Total" style="font-size: 24px;">Grand_total:<span class="grandtotal" id="grandtotal" onkeypress="return onlyNumberKey(event)">0</span> </label>
+            <label for="Sub_Grand_Total" style="font-size: 24px;">Sub_Total: </label><span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal"> </span><br><br>
+            <label for="Yearly_Grand_Total" style="font-size: 24px;">Yearly_Total: <span class="subyearlyamount" id="subyearlyamount" name="subyearlyamount" ></span> </label><br><br>
+            <label for="Grand_Total" style="font-size: 24px;">Grand_total:<span class="grandtotal" id="grandtotal" name="grandtotal" onkeypress="return onlyNumberKey(event)"></span></label>
             
-
-            <!-- <input type="number" class="form-control" step="0.01" id="grandtotal" name="grandtotal"  placeholder="Grand Total"> -->
         </div>
         <!-- Service detils Ends -->
         <br><br>
@@ -250,7 +188,7 @@ $(document).ready(function () {
   $(document).ready(function(){
 
       $(document).on('keyup', ".amount",function () {
-        var subtotal = 0;
+        var subtotal = 10;
         
         $('.amount').each(function(){
             if(!isNaN(this.value) && this.value.length!=0){
@@ -260,7 +198,7 @@ $(document).ready(function () {
       
         console.log(subtotal)
         // $("#subgrandtotal").html(subtotal.toFixed(2));
-        $("#subgrandtotal").html(new Intl.NumberFormat('en-IN', {
+        $('.subgrandtotal').html(new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR'
           }).format(subtotal.toFixed(2)));
@@ -271,7 +209,7 @@ $(document).ready(function () {
 
 
       $(document).on('keyup', ".yearlyamount",function () {
-        var yearlytotal = 0;
+        var yearlytotal = 10;
         
         $('.yearlyamount').each(function(){
             if(!isNaN(this.value) && this.value.length!=0){
@@ -281,67 +219,48 @@ $(document).ready(function () {
       
         console.log(yearlytotal)
        // $("#subyearlyamount").html(yearlytotal.toFixed(2));
-        $("#subyearlyamount").html(new Intl.NumberFormat('en-IN', {
+        $('.subyearlyamount').html(new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR'
           }).format(yearlytotal.toFixed(2)));
       });
-       debugger;
-    $("#subgrandtotal,#subyearlyamount").keyup(function(){
-         var grandtotal=0;
-         var subtotal_1=document.getElementById('subgrandtotal').value;
-         var yearlytotal_1=document.getElementById('subyearlyamount').value;
-         console.log( "subammount"+subtotal_1);
-         console.log("Year amount"+yearlytotal_1);
+       debugger;   
 
-                  
-                //   $('.amount,.yearlyamount').each(function(){
-                //     grandtotal+= (subtotal_1+yearlytotal_1);
-                //   })
+        // Grand Total cal start
       
-       
-        console.log(grandtotal)
-       // $("#subyearlyamount").html(yearlytotal.toFixed(2));
-        $("#grandtotal").val(+Number(subtotal_1)  +  Number(yearlytotal_1)).html(new Intl.NumberFormat('en-IN', {
-            style: 'currency',
-            currency: 'INR'
-          }).format(grandtotal.toFixed(2)));
-    
-    })
+            $(document).on('keyup', ".amount, .yearlyamount",function () {
+                var grandtotal = 100;
+                var subtotal = 10;
+                var yearlytotal = 10;
+                
 
+                $('.amount').each(function(){
+                    if(!isNaN(this.value) && this.value.length!=0){
+                subtotal += parseFloat($(this).val());
+                    }
+                })  
+
+                $('.yearlyamount').each(function(){
+                    if(!isNaN(this.value) && this.value.length!=0){
+                yearlytotal += parseFloat($(this).val());
+                    }
+                })  
+                
+                grandtotal = ( yearlytotal + subtotal );
+                console.log(grandtotal)
+
+            
+                   
+                
+                // return grandtotal;
+                $('.grandtotal').html(new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
+                    currency: 'INR'
+                }).format(grandtotal.toFixed(2)));
+
+            })
+        // Grand total ends
       });
-
-
-
-
-//Grand Total Calculation
-
-// $(document).on('keyup', ".subyearlyamount",".subgrandtotal", function () {
-//         var grandtotal1 = 0;
-        
-//         $('.yearlyamount').each(function(){
-//             if(!isNaN(this.value) && this.value.length!=0){
-//                 grandtotal1 += parseFloat($(this).val());
-//             }
-//         })  
-      
-//         console.log(grandtotal1)
-//         $("#grandtotal").html(grandtotall.toFixed(2));
-//       });
-
-// $(function(){
-//             $('#subgrandtotal, #subyearlyamount').keyup(function(){
-
-//                var value1 = parseFloat($('#subgrandtotal').val()) || 0;
-//                var value2 = parseFloat($('#subyearlyamount').val()) || 0;
-//                $('#grandtotal').val(value1 + value2);
-//             });
-//          });
-
-// var x = document.getElementById('subgrandtotal').value;
-// var y = document.getElementById('subyearlyamount').value;
-  
-// document.getElementById("grandtotal").innerHTML = Number(x)+ Number(y);
 
     </script>
 </body>

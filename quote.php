@@ -3,7 +3,7 @@
 $hostname="localhost";
 	$username="root";
 	$password="";
-    $dbname="quote";
+    $dbname="springlabsdb";
     
 
         $customer = $_POST["customer"];
@@ -78,7 +78,7 @@ if($query){
         for($i = 0; $i < count($service); $i++)
         {
 
-            $sql_service_details_insert = "INSERT INTO servce_details (quoteid, service, subamount, yearlyamount) 
+            $sql_service_details_insert = "INSERT INTO service_details (quoteid, service, subamount, yearlyamount) 
                                             VALUES ('$quoteid', '{$service[$i]}', '{$subamount[$i]}','{$yearlyamount[$i]}')";
                                 
             
@@ -106,9 +106,9 @@ if($query){
 
 if ($conn->query($sql) === TRUE) {
 
-    echo "<script>  window.location.href = 'index.php';
-  </script> ";
-  exit;
+//     echo "<script>  window.location.href = 'index.php';
+//   </script> ";
+//   exit;
  } else {
  echo "Error: " . $sql . "<br>" . $conn->error;
  }

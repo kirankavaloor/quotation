@@ -3,7 +3,7 @@
 $hostname="localhost";
 	$username="root";
 	$password="";
-    $dbname="quote";
+    $dbname="springlabsdb";
 
     $conn = mysqli_connect($hostname,$username, $password, $dbname);
 
@@ -129,7 +129,7 @@ $hostname="localhost";
         <?php
             $quoteid =isset( $_GET['quoteid'])?$_GET['quoteid'] : '';
 
-            $result2 = mysqli_query($conn , "SELECT * FROM servce_details WHERE quoteid = '$quoteid'");
+            $result2 = mysqli_query($conn , "SELECT * FROM service_details WHERE quoteid = '$quoteid'");
 
             $i=0;
     while($quoteid = mysqli_fetch_assoc($result2)) {

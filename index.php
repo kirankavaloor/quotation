@@ -5,7 +5,7 @@
 $hostname="localhost";
 	$username="root";
 	$password="";
-    $dbname="quote";
+    $dbname="springlabsdb";
 
 
 
