@@ -136,6 +136,7 @@ $(document).ready(function () {
             </tbody> 
         </table>
         
+        
             <br><br>
             <br><br>
             <label for="Sub_Grand_Total" style="font-size: 24px;">Sub_Total: </label><span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal"> </span><br><br>
