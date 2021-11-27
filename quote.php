@@ -1,6 +1,6 @@
 <?php
 
-$hostname="localhost";
+    $hostname="localhost";
 	$username="root";
 	$password="";
     $dbname="springlabsdb";
@@ -96,22 +96,24 @@ if($query){
                 
                 // echo " Notes Details Submitted";
             }
+            // echo "<script>  window.location.href = 'index.php';
+            //     </script> ";
+            //     exit;
 
         }else{
             // echo " not Submitted";
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
 
-        
-
-if ($conn->query($sql) === TRUE) {
+// if ($conn->query($sql) === TRUE) {
 
 //     echo "<script>  window.location.href = 'index.php';
-//   </script> ";
-//   exit;
- } else {
- echo "Error: " . $sql . "<br>" . $conn->error;
- }
+//         </script> ";
+//         exit;
+//  } else {
+//  echo "Error: " . $sql . "<br>" . $conn->error;
+//  }
 
 $conn->close();
 ?>

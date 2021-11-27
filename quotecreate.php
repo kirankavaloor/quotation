@@ -135,10 +135,16 @@ $(document).ready(function () {
                 </tr>
             </tbody> 
         </table>
-        
+
             <br><br>
             <br><br>
-            <label for="Sub_Grand_Total" style="font-size: 24px;">Sub_Total: </label><span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal"> </span><br><br>
+            <!-- <input type="text" class="subgrandtotal" id="subgrandtotal" name="subgrandtotal" readonly/>
+           
+           <input type="text" class="grandtotal" name="grandtotal" id="grandtotal" readonly/>
+
+           <input type="text" class="subyearlyamount" name="subyearlyamount" id="subyearlyamount" readonly/>
+            -->
+            <label for="Sub_Grand_Total" style="font-size: 24px;">Sub_Total: <span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal"> </span></label><br><br>
             <label for="Yearly_Grand_Total" style="font-size: 24px;">Yearly_Total: <span class="subyearlyamount" id="subyearlyamount" name="subyearlyamount" ></span> </label><br><br>
             <label for="Grand_Total" style="font-size: 24px;">Grand_total:<span class="grandtotal" id="grandtotal" name="grandtotal" onkeypress="return onlyNumberKey(event)"></span></label>
             
@@ -185,12 +191,16 @@ $(document).ready(function () {
               return false; 
           return true; 
       }
+
   $(document).ready(function(){
 
       $(document).on('keyup', ".amount",function () {
         var subtotal = 10;
         
+        // through each textboxes and add the values
         $('.amount').each(function(){
+
+                        //add only if the value is number
             if(!isNaN(this.value) && this.value.length!=0){
           subtotal += parseFloat($(this).val());
             }
@@ -234,6 +244,7 @@ $(document).ready(function () {
                 var yearlytotal = 10;
                 
 
+                    
                 $('.amount').each(function(){
                     if(!isNaN(this.value) && this.value.length!=0){
                 subtotal += parseFloat($(this).val());
@@ -249,10 +260,6 @@ $(document).ready(function () {
                 grandtotal = ( yearlytotal + subtotal );
                 console.log(grandtotal)
 
-            
-                   
-                
-                // return grandtotal;
                 $('.grandtotal').html(new Intl.NumberFormat('en-IN', {
                     style: 'currency',
                     currency: 'INR'
