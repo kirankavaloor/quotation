@@ -11,7 +11,7 @@ $hostname="localhost";
 
 $conn = mysqli_connect($hostname,$username, $password, $dbname);
 
-$query = "SELECT * FROM customer";
+$query = "SELECT * FROM customer ORDER BY quoteid DESC";
 
 
 if(isset($_GET['page']))
@@ -73,7 +73,7 @@ $records = mysqli_query($conn, "SELECT * FROM customer limit $start_from,$num_pe
     }
     }
     
-  $result = mysqli_query( $conn , "SELECT * FROM customer_details limit $start_from,$num_per_page");
+  $result = mysqli_query( $conn , "SELECT * FROM customer_details ORDER BY quoteid DESC limit $start_from,$num_per_page");
   ?>
 <div><?php if(isset($message)) { echo $message; } ?>
   </div>

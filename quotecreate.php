@@ -138,15 +138,26 @@ $(document).ready(function () {
 
             <br><br>
             <br><br>
-            <!-- <input type="text" class="subgrandtotal" id="subgrandtotal" name="subgrandtotal" readonly/>
-           
-           <input type="text" class="grandtotal" name="grandtotal" id="grandtotal" readonly/>
+            <label for="Sub_Grand_Total" style="font-size: 24px;">Sub Amount: <input type="text" class="subgrandtotal" id="subgrandtotal" name="subgrandtotal" readonly/></lable>
+            
 
-           <input type="text" class="subyearlyamount" name="subyearlyamount" id="subyearlyamount" readonly/>
-            -->
-            <label for="Sub_Grand_Total" style="font-size: 24px;">Sub_Total: <span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal"> </span></label><br><br>
+            <br>
+
+            <label for="subyearlyamount" style="font-size: 24px;">Sub Yearly Amount: <input type="text" class="subyearlyamount" name="subyearlyamount" id="subyearlyamount" readonly/></lable>
+            
+
+            <br>
+
+            <label for="grandtotal" style="font-size: 24px;">Sub Yearly Amount :<input type="text" class="grandtotal" name="grandtotal" id="grandtotal" readonly/></lable>
+            
+
+            <br>
+
+           
+           
+            <!-- <label for="Sub_Grand_Total" style="font-size: 24px;">Sub_Total: <span class="subgrandtotal" id="subgrandtotal" name="subgrandtotal"> </span></label><br><br>
             <label for="Yearly_Grand_Total" style="font-size: 24px;">Yearly_Total: <span class="subyearlyamount" id="subyearlyamount" name="subyearlyamount" ></span> </label><br><br>
-            <label for="Grand_Total" style="font-size: 24px;">Grand_total:<span class="grandtotal" id="grandtotal" name="grandtotal" onkeypress="return onlyNumberKey(event)"></span></label>
+            <label for="Grand_Total" style="font-size: 24px;">Grand_total:<span class="grandtotal" id="grandtotal" name="grandtotal" onkeypress="return onlyNumberKey(event)"></span></label> -->
             
         </div>
         <!-- Service detils Ends -->
@@ -195,7 +206,7 @@ $(document).ready(function () {
   $(document).ready(function(){
 
       $(document).on('keyup', ".amount",function () {
-        var subtotal = 10;
+        var subtotal = 0;
         
         // through each textboxes and add the values
         $('.amount').each(function(){
@@ -208,18 +219,21 @@ $(document).ready(function () {
       
         console.log(subtotal)
         // $("#subgrandtotal").html(subtotal.toFixed(2));
-        $('.subgrandtotal').html(new Intl.NumberFormat('en-IN', {
-            style: 'currency',
-            currency: 'INR'
-          }).format(subtotal.toFixed(2)));
+
+         $("#subgrandtotal").val(subtotal);
+
+        // $("#subgrandtotal").val(new Intl.NumberFormat('en-IN', {
+        //     style: 'currency',
+        //     currency: 'INR'
+        //   }).format(subtotal.toFixed(2)));
       });
 
 
 // Yearly cal 
 
 
-      $(document).on('keyup', ".yearlyamount",function () {
-        var yearlytotal = 10;
+      $(document).on('keyup', ".yearlyamount",function () {       
+        var yearlytotal = 0;
         
         $('.yearlyamount').each(function(){
             if(!isNaN(this.value) && this.value.length!=0){
@@ -228,20 +242,21 @@ $(document).ready(function () {
         })  
       
         console.log(yearlytotal)
+        $("#subyearlyamount").val(yearlytotal);
        // $("#subyearlyamount").html(yearlytotal.toFixed(2));
-        $('.subyearlyamount').html(new Intl.NumberFormat('en-IN', {
-            style: 'currency',
-            currency: 'INR'
-          }).format(yearlytotal.toFixed(2)));
+        // $("#subyearlyamount").val(new Intl.NumberFormat('en-IN', {
+        //     style: 'currency',
+        //     currency: 'INR'
+        //   }).format(yearlytotal.toFixed(2)));
       });
        debugger;   
 
         // Grand Total cal start
       
             $(document).on('keyup', ".amount, .yearlyamount",function () {
-                var grandtotal = 100;
-                var subtotal = 10;
-                var yearlytotal = 10;
+                var grandtotal = 0;
+                var subtotal = 0;
+                var yearlytotal = 0;
                 
 
                     
@@ -260,10 +275,12 @@ $(document).ready(function () {
                 grandtotal = ( yearlytotal + subtotal );
                 console.log(grandtotal)
 
-                $('.grandtotal').html(new Intl.NumberFormat('en-IN', {
-                    style: 'currency',
-                    currency: 'INR'
-                }).format(grandtotal.toFixed(2)));
+                $("#grandtotal").val(grandtotal);
+
+                // $("#grandtotal").val(new Intl.NumberFormat('en-IN', {
+                //     style: 'currency',
+                //     currency: 'INR'
+                // }).format(grandtotal.toFixed(2)));
 
             })
         // Grand total ends

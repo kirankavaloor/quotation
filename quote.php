@@ -96,9 +96,9 @@ if($query){
                 
                 // echo " Notes Details Submitted";
             }
-            // echo "<script>  window.location.href = 'index.php';
-            //     </script> ";
-            //     exit;
+            echo "<script>  window.location.href = 'index.php';
+                </script> ";
+                exit;
 
         }else{
             // echo " not Submitted";
